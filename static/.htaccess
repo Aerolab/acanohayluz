@@ -1,0 +1,87 @@
+##########################################################################################
+# Encoding UTF-8 para todo
+
+AddDefaultCharset utf-8
+AddCharset utf-8 .htm .html .css .js .xml .json .rss .txt
+
+# Quita Directory Browsing
+Options -Indexes
+
+
+##########################################################################################
+# Caché General de Estáticos (Cache-Control)
+<IfModule mod_headers.c>
+
+  FileETag MTime Size
+
+  <FilesMatch "^.*\.(ico|pdf|flv|jpg|jpeg|png|gif|bmp|swf|mp3|mp4|ttf|woff|svg|eot)$">
+    Header set Cache-Control "public, no-transform"
+    #Header unset Last-Modified
+    FileETag MTime Size
+  </FilesMatch>
+
+</IfModule>
+
+
+##########################################################################################
+# Expires Específicos
+<IfModule mod_expires.c>
+
+  ExpiresActive on
+
+  # Las imágenes se pueden cachear agresivamente
+  ExpiresByType image/bmp            "access plus 1 year"
+  ExpiresByType image/png            "access plus 1 year"
+  ExpiresByType image/gif            "access plus 1 year"
+  ExpiresByType image/jpg            "access plus 1 year"
+  ExpiresByType image/jpeg           "access plus 1 year"
+
+  # Setea los tipos de fonts en Apache         
+  AddType application/vnd.ms-fontobject eot
+  AddType font/truetype                 ttf
+  AddType font/opentype                 otf
+  AddType font/woff                     woff
+  
+  # Las fonts también se cachean agresivamente
+  ExpiresByType application/octet-stream      "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+  ExpiresByType font/truetype                 "access plus 1 year"
+  ExpiresByType font/opentype                 "access plus 1 year"
+  ExpiresByType font/woff                     "access plus 1 year"
+
+  # El CSS y JS puede que cambie, así que se pone una vez a la semana.
+  ExpiresByType text/css                "access plus 1 week"
+  ExpiresByType text/javascript         "access plus 1 week"
+  ExpiresByType application/javascript  "access plus 1 week"
+  ExpiresByType text/plain              "access plus 1 week"
+
+  # MIME type especial para favicons - see http://www.iana.org/assignments/media-types/image/vnd.microsoft.icon
+  AddType image/vnd.microsoft.icon  ico
+  # Los favicons se cachean medianamente
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 month"
+
+</IfModule>
+
+
+##########################################################################################
+# Compresión de CSS y JS
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
+  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+</IfModule>
+
+<IfModule mod_deflate.c>
+  SetOutputFilter DEFLATE
+
+  # Don’t compress
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+  SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+
+  #Dealing with proxy servers
+  <IfModule mod_headers.c>
+  Header append Vary User-Agent
+  </IfModule>
+</IfModule>
+
+ServerSignature Off

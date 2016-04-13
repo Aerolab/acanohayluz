@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es" prefix="og: http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+
+  <meta charset="utf-8" />
+
+  <title>Cortes de Luz en Buenos Aires y alrededores - #AcaNoHayLuz</title>
+  <meta name="description" content="Si volvió o se fue la luz en tu cuadra o barrio ¡cargalo en el mapa! Armemos entre todos un reporte de los cortes de energía :)" />
+  <link rel="canonical" href="http://acanohayluz.com.ar" />
+  <meta name="robots" content="NOINDEX, FOLLOW" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="/static/embed/css/styles.min.css?201312270400" />
+
+  <meta property="og:title" content="Cortes de Luz en Buenos Aires y alrededores - #AcáNoHayLuz" />
+  <meta property="og:description" content="#AcáNoHayLuz muestra los cortes de energía veraniegos. ¿Hay luz en tu casa? Chequealo en acanohayluz.com.ar" />
+  <meta property="og:image" content="http://acanohayluz.com.ar/static/icons/facebook-share.png" />
+  <meta property="og:url" content="http://acanohayluz.com.ar" />
+
+  <link rel="shortcut icon" href="/static/icons/favicon.ico" />
+  <link rel="icon" href="/static/icons/favicon.ico" />
+
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/static/icons/apple-touch-icon-114x114.png">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXXX-1', 'acanohayluz.com.ar');
+    ga('send', 'pageview');
+
+    var STATIC_URL = 'http://acanohayluz.com.ar/static/';
+  </script>
+
+</head>
+<body>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAcnea0qz5mzAw6rrdz-wVz-ZGJ-T1AbAk&sensor=true&language=es&libraries=places"></script>
+
+<script type="text/javascript" src="//acanohayluz.com.ar/static/zonas.js?201312292005"></script>
+<script type="text/javascript" src="/static/js/scripts-embed.min.js?201401082130"></script>
+
+<div id="container">
+
+  <div id="reportar">
+    <div class="header">
+      <h2>Cargar reporte</h2>
+      <span class="cerrar">X</span>
+    </div>
+
+    <form class="form" method="post">
+      <ul id="situacion-luz">
+        <li class="estado-luz hay-luz">
+          <label>
+            <div class="carita"></div>
+            Hay luz en<br />mi cuadra!
+            <input type="radio" name="estado" value="hay-luz" />
+          </label>
+        </li>
+
+        <li class="estado-luz corte-cuadra">
+          <label class="active">
+            <div class="carita"></div>
+            Se corto en<br />mi cuadra
+            <input type="radio" name="estado" value="corte-cuadra" checked />
+          </label>
+        </li>
+
+        <li class="estado-luz corte-amplio">
+          <label>
+            <div class="carita"></div>
+            Se corto en<br />varias cuadras
+            <input type="radio" name="estado" value="corte-amplio" />
+          </label>
+        </li>
+      </ul>
+
+      <div class="direccion" id="direccion">
+        <label for="direccion"><input type="text" name="direccion" placeholder="Ingresa tu dirección" /></label>
+        <div class="error"></div>
+      </div>
+      <label for="horas" class="adicional horas"><input type="text" name="horas" id="horas" placeholder="Cuántas horas llevás sin luz?" /></label>
+
+      <div style="display:none;">
+        <input type="hidden" name="direccion_completa" value="" />
+        <input type="hidden" name="direccion_id" value="" />
+        <input type="hidden" name="zona_nombre" value="" />
+        <input type="hidden" name="lat" value="" />
+        <input type="hidden" name="long" value="" />
+        <input type="hidden" name="zona_id" value="" />
+      </div>
+
+      <button class="btn disabled">Completa el formulario</button>
+    </form>
+
+    <div class="box-gracias">
+      <div class="mensaje">
+        <h2>Gracias por tu<br/> colaboración!</h2>
+        <p>Tu reporte aparecerá en el mapa en los próximos minutos</p>
+      </div>
+
+      <div class="box-social">
+        <h4>Compartilo en las redes</h4>
+        <a class="btn-social icon facebook" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://acanohayluz.com.ar&p[images][0]=http://acanohayluz.com.ar/static/icons/facebook-share.png&p[title]=Estoy en casa y #AcaNoHayLuz&p[summary]=Mirá dónde más no hay en acanohayluz.com.ar" target="_blank"><span class="screenreader">Facebook</span></a>
+        <a class="btn-social icon twitter" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Facanohayluz.com.ar%2F&text=Estoy en casa y %23AcaNoHayLuz. Mirá dónde más no hay en http://acanohayluz.com.ar" target="_blank"><span class="screenreader">Twitter</span></a>
+        <a class="btn-social icon google" href="https://plus.google.com/share?url=http://acanohayluz.com.ar" target="_blank"><span class="screenreader">Google+</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="crop">
+    <ul id="acciones">
+      <li class="logo"><a href="http://acanohayluz.com.ar" target="_blank">#AcaNoHayLuz</a></li>
+      <li class="abrir-panel"><a href="">Cargar reporte</a></li>
+      <li class="share-link tw"><a href="https://twitter.com/share" class="twitter-share-button" data-text="#AcáNoHayLuz muestra los cortes de energía veraniegos. ¿Hay luz en tu casa? Chequealo en" data-lang="es">Tweet</a></li>
+      <li class="share-link fb"><span class="fb-share-button" data-href="http://acanohayluz.com.ar/" data-type="button_count"></span></li>
+    </ul>
+
+    <div id="ubicacion">
+      <div class="seleccionada"></div>
+      <ul class="opciones">
+
+      </ul>
+    </div>
+
+    <div id="mapa">
+
+    </div>
+
+  </div>
+
+</div>
+
+<div id="fb-root"></div>
+<script>
+  $(window).load(function(){
+    // FB
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1&appId=XXXXXXXXXXXXXXX";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Twitter
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  });
+</script>
+
+</body>
+</html>

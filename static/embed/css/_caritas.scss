@@ -1,0 +1,45 @@
+
+
+.carita {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin: 0 auto 10px;
+	box-shadow: 0px 0px 0px 4px rgba(0,0,0,.15);
+	position: relative;
+	cursor: pointer;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 15px;
+		left: 11px;
+		display: block;
+		width: 29px;
+		height: 22px;
+	}
+}
+
+.hay-luz .carita {
+	background: #00ff95;
+
+	&:before {
+		background: url(images/sprite-ui.png) no-repeat 0px 0px;
+	}
+}
+
+.corte-cuadra .carita {
+	background: #ff7d1f;
+
+	&:before {
+		background: url(images/sprite-ui.png) no-repeat -30px 0px;
+	}
+}
+
+.corte-amplio .carita {
+	background: #f8312e;
+
+	&:before {
+		background: url(images/sprite-ui.png) no-repeat -60px 0px;
+	}
+}

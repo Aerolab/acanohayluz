@@ -1,0 +1,124 @@
+@import "_variables.scss";
+
+#direccion {
+  background: $azul_oscuro;
+  margin-bottom: 10px;
+
+  input[type=text] {
+    border-radius: 0px;
+    border: none;
+    border-top: 1px solid $azul_oscuro;
+    padding: 15px 70px 16px 35px;
+  }
+
+  .icon {
+    top: 25px;
+    right: 41px;
+  }
+
+  .ubicacion {
+    position: relative;
+    padding: 15px 30px 15px 50px;
+    display: none;
+    font-size: 11px;
+    font-weight: normal;
+
+    .street-address {
+      display: block;
+      font-size: 15px;
+    }
+    .country-name {
+      display: none;
+    }
+
+    .cerrar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: center;
+      background: $azul;
+      border-radius: 2px;
+      overflow: hidden;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+
+  &.found {
+    .input {
+      display: none;
+    }
+    .ubicacion {
+      display: block;
+    }
+  }
+
+  .error {
+    display: none;
+    color: $blanco;
+    background: $amarillo_alerta;
+    padding: 10px 35px;
+    font-size: 12px;
+    text-align: center;
+    color: #545454;
+  }
+}
+
+
+/* Google Places Autocomplete */
+.pac-container {
+  background: $azul;
+  overflow: auto;
+  border: none;
+  z-index: 9100;
+
+  &:after {
+    display: none !important;
+  }
+
+  .pac-item {
+    display: block;
+    line-height: 16px;
+
+    padding: 10px 20px;
+    color: #ffffff;
+    border: 1px solid $azul_oscuro;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    transition: background 0.16s ease-out;
+
+    &:hover, &.pac-item-selected {
+      background: rgba(0,0,0,0.1);
+    }
+
+    .pac-icon {
+      display: none;
+    }
+
+    .pac-item-query {
+      font-size: 13px;
+      font-weight: normal;
+      color: #ffffff;
+      display: block;
+    }
+  }
+
+  /* Scrollbars */
+  &::-webkit-scrollbar {
+    background: none;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $azul_oscuro;
+    border-radius: 6px;
+  }
+  &::-webkit-scrollbar-button { }
+  &::-webkit-scrollbar-track { }
+  &::-webkit-scrollbar-track-piece { }
+  &::-webkit-scrollbar-corner { }
+}

@@ -1,0 +1,110 @@
+#acciones {
+	margin: 0;
+	padding: 15px;
+	position: absolute;
+	pointer-events: none;
+	min-height: 100%;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	z-index: 3;
+
+	&:after {
+		content: "";
+		height: 0;
+		clear: both;
+		display: block;
+	}
+
+	li {
+		float: left;
+		background: rgba(255,255,255,.7);
+		box-shadow: 0px 1px 3px rgba(0,0,0,.3);
+		font-weight: bold;
+		font-size: 13px;
+		list-style: none;
+		border-radius: 2px;
+		position: relative;
+		pointer-events: auto;
+
+		a {
+			color: #545454;
+			text-decoration: none;
+			display: block;
+			padding: 7px 10px;
+		}
+
+		&.logo {
+			height: 43px;
+			line-height: 43px;
+			padding: 0;
+			background: none;
+			float: left;
+			box-shadow: none;
+			position: relative;
+			top: -13px;
+			margin-right: 10px;
+
+			a {
+				background: url(images/logo-acanohayluz.png) no-repeat left;
+				padding-left: 55px;
+				color: $azul_oscuro;
+        text-shadow: 0px 1px 2px $blanco,
+                     0px -1px 2px $blanco,
+                     -1px 0px 2px $blanco,
+                     1px 0px 2px $blanco;
+				font-weight: bold;
+				text-decoration: none;
+			}
+			&:hover {
+				background: none;
+			}
+		}
+
+		&.compartir {
+			float: right;
+			padding-left: 20px;
+
+			&:before {
+				content: "";
+				width: 16px;
+				height: 13px;
+				background: url(images/sprite-ui.png) no-repeat -39px -31px;
+				display: block;
+				position: absolute;
+				top: 7px;
+				left: 10px;
+			}
+		}
+		&.abrir-panel {
+			padding-left: 20px;
+
+			&:before {
+				content: "";
+				width: 16px;
+				height: 13px;
+				background: url(images/sprite-ui.png) no-repeat -55px -31px;
+				display: block;
+				position: absolute;
+				top: 7px;
+				left: 10px;
+			}
+		}
+		&:hover {
+			background: #fff;
+		}
+
+		&.share-link {
+			background: none;
+			position: fixed;
+			bottom: 15px;
+			right: 10px;
+      box-shadow: none;
+		}
+		&.fb {
+			bottom: 45px;
+		}
+	}
+
+}

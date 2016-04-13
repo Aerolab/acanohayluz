@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>#AcaNoHayLuz</title>
+	<meta name="description" content="Mapa interactivo que permite reportar la falta de luz en tu barrio.">
+	<meta name="author" content="Aerolab">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Fonts
+  ================================================== -->
+	<link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+	<!-- CSS
+  ================================================== -->
+  	<style>
+	  	/* #Reset & Basics (Inspired by E. Meyers)
+		================================================== */
+		html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline; }
+		article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+			display: block; }
+		body {
+			line-height: 1; }
+		ol, ul {
+			list-style: none; }
+		blockquote, q {
+			quotes: none; }
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none; }
+		table {
+			border-collapse: collapse;
+			border-spacing: 0; }
+
+		body {
+			height: 100%;
+		}
+
+		.intro {
+			position: absolute; 
+			text-align: center;
+			height: 200px;
+			width: 400px;
+			margin-top: -100px;
+			top: 45%;
+			margin-left: -200px;
+			left: 50%;
+			color: #fff;
+			z-index: 100;
+		}
+		
+		.intro h1 {
+			font-size: 30px;
+			font-family: 'Bitter', serif;
+		}
+
+		.intro img {
+			margin: 30px 0;
+		}
+
+		.intro p {
+			color: #797297;
+		}
+
+		.full-bg-color, .full-bg-image {
+			position: absolute;	
+			height: 100%;
+			width:100%;
+			background: rgba(35,36,61,.9); /* #23243d */
+		}
+
+		.full-bg-image {			
+			background: url('mapa.jpg') no-repeat center; 
+			background-repeat: no-repeat!important;
+			background-position: center !important;
+			-webkit-background-size: cover!important;
+			-moz-background-size: cover!important;
+			-o-background-size: cover!important;
+			background-size: cover!important;
+		}
+		
+
+	</style>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+<!-- Primary Page Layout
+================================================== -->
+
+	<div class="header">
+		<div class="full-bg-image"></div>
+		<div class="full-bg-color"></div>
+
+		<section class="intro">
+			<h1>#AcaNoHayLuz</h1>
+			<img src="status.png" alt="¿En qué situación se encuentra tu barrio?" />
+			<br/>
+			<p>Estamos sin luz, ya llega</p>
+		</section>
+	</div>
+		
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

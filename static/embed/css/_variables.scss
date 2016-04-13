@@ -1,0 +1,23 @@
+$azul: #2A263F;
+$azul_oscuro: #221E35;
+$negro: #161324;
+$violeta: #A398D0;
+$verde: #00FF95;
+$verde_oscuro: #188658;
+$naranja: #FF7D1F;
+$naranja_oscuro: #AB4700;
+$rojo: #F8312E;
+$rojo_oscuro: #8F1E1D;
+$blanco: #FFFFFF;
+$amarillo_alerta: #fff2ab;
+
+$disabled: #403d55;
+$disabled_text: #595472;
+
+
+@mixin placeholder-style($color, $style, $weight) {
+  &::-webkit-input-placeholder { color: $color; font-style: $style; font-weight: $weight; }
+  &:-moz-placeholder { color: $color; font-style: $style; font-weight: $weight; }
+  &::-moz-placeholder { color: $color; font-style: $style; font-weight: $weight; }
+  &:-ms-input-placeholder { color: $color; font-style: $style; font-weight: $weight; }
+}

@@ -1,0 +1,101 @@
+@import "_variables.scss";
+
+.screenreader {
+  position: absolute;
+  left: -9999px;
+}
+
+.input {
+  position: relative;
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    right: 20px;
+  }
+}
+
+.icon {
+  display: inline-block;
+  overflow: hidden;
+  font-size: 1px;
+  width: 16px;
+  height: 16px;
+  background: url(images/sprite-ui@2x.png) no-repeat -1000px -1000px;
+  background-size: 116px 78px;
+
+  &.lugar {
+    width: 13px;
+    background-position: -16px -62px;
+  }
+  &.tiempo {
+    background-position: -0px -62px;
+  }
+  &.location {
+    background-position: -30px -62px;
+  }
+  &.loading {
+    background: url(images/loading.gif) no-repeat center;
+    background-size: 20px 20px;
+  }
+}
+
+
+input[type=text], input[type=number], input[type=email], textarea {
+  display: block;
+  background: $azul_oscuro;
+  border: 1px solid $negro;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  font-size: 14px;
+  // Se deja lugar para el icon
+  padding: 15px 45px 15px 15px;
+
+  color: #ffffff;
+
+  @include placeholder-style(#E0EAF4, 'italic', 'normal');
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type=number] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+}
+
+.btn {
+  display: block;
+  padding: 17px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: normal;
+  color: #ffffff;
+  text-decoration: none;
+  outline: none;
+
+  transition: all 0.2s ease-out;
+
+  &.disabled {
+    box-shadow: inset 0px 1px 0px $disabled_text;
+    cursor: default;
+  }
+
+  &:hover {
+    background: $azul_oscuro;
+  }
+}

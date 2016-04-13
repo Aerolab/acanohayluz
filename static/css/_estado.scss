@@ -1,0 +1,100 @@
+@import "_variables.scss";
+
+#reportar .adicional.rango {
+  overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#reportar .adicional.horas {
+  padding-bottom: 0px;
+}
+#reportar .enviar {
+  padding-top: 20px;
+}
+
+#reportar .buscar-location {
+  position: absolute;
+  background: $azul_oscuro;
+  height: 49px;
+  width: 70px;
+  right: 0;
+  z-index: 1;
+  outline: none;
+  display: none;
+  &.buscando {
+    .icon {
+      background: url(images/loading.gif) no-repeat center;
+      background-size: 16px 16px;
+    }
+  }
+}
+
+label.estado-luz {
+  display: block;
+  cursor: pointer;
+  float: left;
+  box-sizing: border-box;
+  width: 33.3%;
+  min-height: 115px;
+  padding: 0px;
+  font-size: 11px;
+  color: $violeta;
+  text-align: center;
+  transition: all 0.2s ease-out;
+
+  &:hover, &.active {
+    color: $blanco;
+
+    .boton {
+      border-color: $negro;
+    }
+  }
+
+  input[type=radio] {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .boton {
+    display: block;
+    overflow: hidden;
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    border: 8px solid $azul_oscuro;
+    margin: 0px auto;
+    margin-bottom: 6px;
+    transition: all 0.2s ease-out;
+
+    box-shadow: 0px 0px 1px $negro;
+  }
+
+  .carita {
+    display: block;
+    width: 29px;
+
+    height: 22px;
+    margin: 22px auto 0px auto;
+    background: url(images/sprite-ui.png) no-repeat -1000px -1000px;
+  }
+
+  &.hay-luz .boton {
+    background: $verde;
+    &:hover { background: darken($verde, 5%); }
+    .carita { background-position: 0px 0px; }
+  }
+  &.corte-cuadra .boton {
+    background: $naranja;
+    &:hover { background: darken($naranja, 5%); }
+    .carita { background-position: -30px 0px; }
+  }
+  &.corte-amplio .boton {
+    background: $rojo;
+    &:hover { background: darken($rojo, 5%); }
+    .carita { background-position: -60px 0px; }
+  }
+
+}

@@ -1,0 +1,226 @@
+@import "_variables.scss";
+
+
+#mapa {
+
+  .gm-style div.map-barrio {
+    font-family: "Aller", "Trebuchet MS", Trebuchet, Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
+    z-index: 999;
+
+    text-shadow: 0px 1px 3px $blanco, 0px -1px 3px $blanco, 0px 0px 3px $blanco;
+
+    &.luz {
+      color: darken($verde_oscuro, 15%);
+    }
+    &.inconvenientes {
+      color: darken($verde_oscuro, 15%);
+    }
+    &.cortes {
+      color: darken($naranja_oscuro, 15%);
+    }
+    &.apagon {
+      color: darken($rojo_oscuro, 15%);
+    }
+    &.apagonazo {
+      color: darken($azul_oscuro, 15%);
+    }
+
+    h6 {
+      position: absolute;
+      width: 100%;
+      top: 45%;
+      margin: 0;
+      margin-top: -10px;
+      box-sizing: border-box;
+      padding: 0px 30px;
+      font-size: 12px;
+      line-height: 100%;
+      font-weight: bold;
+
+      small {
+        display: block;
+        font-size: 0.8em;
+        font-weight: normal;
+      }
+    }
+
+    // Overrides para algunos barrios
+    &.belgrano h6 { top: 55%; }
+    &.coghlan h6 { padding: 0px 10px; }
+    &.boca h6 { padding: 0px 50% 0px 10px; }
+    &.flores h6 { padding: 0px 32% 0px 10px; }
+    &.constitucion h6 { padding: 0px 10% 0px 10px; }
+    &.villa-ortuzar h6 { padding: 0px 5px 0px 16%; }
+
+  }
+
+
+  &.barrios-no-visibles {
+    .gm-style div.map-barrio {
+      display: none !important;
+    }
+  }
+
+  &.zoom-14 {
+    .gm-style div.map-barrio h6 {
+      font-size: 16px;
+    }
+  }
+  &.zoom-15 {
+    .gm-style div.map-barrio h6 {
+      font-size: 18px;
+    }
+  }
+  &.zoom-16 {
+    .gm-style div.map-barrio h6 {
+      font-size: 22px;
+    }
+  }
+  &.zoom-17, &.zoom-18 {
+    .gm-style div.map-barrio h6 {
+      font-size: 24px;
+    }
+  }
+  &.zoom-19, &.zoom-20, &.zoom-21 {
+    .gm-style div.map-barrio h6 {
+      font-size: 26px;
+    }
+  }
+
+
+  // Tooltips de cortes de luz
+  .gm-style-iw {
+    padding: 5px 0px;
+    min-height: 40px;
+
+    h6 {
+      font-size: 14px;
+      line-height: 160%;
+      margin: 0px;
+
+      &.hay-luz {
+        color: $verde_oscuro;
+      }
+      &.corte-cuadra {
+        color: $naranja_oscuro;
+      }
+      &.corte-amplio {
+        color: $rojo_oscuro;
+      }
+    }
+    p {
+      font-size: 12px;
+      line-height: 140%;
+      margin: 0px;
+    }
+  }
+
+}
+
+
+
+/* Selector de Ubicación */
+#ubicacion {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 350px;
+  width: auto;
+  max-width: 230px;
+  color: $blanco;
+  background: $azul;
+  border: 1px solid $azul_oscuro;
+  overflow: auto;
+  z-index: 9800;
+  opacity: 0.5;
+  box-shadow: inset 0px 1px 0px $disabled_text;
+  border-radius: 2px;
+  transition: opacity 0.2s ease-out;
+
+  &:hover, &.open {
+    opacity: 1.0;
+  }
+
+
+  li, .seleccionada {
+    display: block;
+    cursor: pointer;
+    line-height: 16px;
+
+    padding: 10px 40px 10px 20px;
+    color: #ffffff;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    transition: background 0.16s ease-out;
+
+    &:hover {
+      background: rgba(0,0,0,0.1);
+    }
+  }
+
+  ul.opciones li {
+    border-top: 1px solid $azul_oscuro;
+  }
+
+  .seleccionada:after {
+    position: absolute;
+    display: block;
+    top: 11px;
+    right: 20px;
+    content:">";
+    font-size: 18px;
+    color: darken($blanco, 10%);
+
+
+    margin-left: 10px;
+
+    transition: all 0.1s ease-out;
+
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  &.open .seleccionada:after {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+
+  ul.opciones {
+    padding: 0px;
+    margin: 0px;
+    height: 1px;
+    max-height: 1px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+
+    /* Scrollbars */
+    &::-webkit-scrollbar {
+      background: none;
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $azul_oscuro;
+      border-radius: 6px;
+    }
+    &::-webkit-scrollbar-button { }
+    &::-webkit-scrollbar-track { }
+    &::-webkit-scrollbar-track-piece { }
+    &::-webkit-scrollbar-corner { }
+  }
+
+  &.open ul.opciones {
+    height: auto;
+    max-height: 300px;
+  }
+
+}

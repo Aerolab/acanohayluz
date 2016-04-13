@@ -1,0 +1,63 @@
+@import "../../css/_normalize";
+@import "../../css/_variables";
+
+html, body {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  transform: translateZ(0);
+
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+}
+body, input, select, textarea, .pac-container {
+  font-family: "Trebuchet MS", Trebuchet, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+body {
+  min-height: 400px;
+  min-width: 500px;
+  position: relative;
+  background: #000;
+}
+#container, #crop, #mapa {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+@import "../../css/_utils";
+@import "panel";
+@import "caritas";
+@import "acciones";
+@import "../../css/_mapa";
+@import "../../css/_gracias";
+
+// Animaciones!
+#reportar {
+  display: none;
+  overflow: hidden;
+  opacity: 0.0;
+  transition: opacity 0.3s ease-out;
+}
+#acciones li.logo {
+  transition: all 0.25s ease-out;
+}
+
+#ubicacion {
+  display: none !important;
+}
+
+#container.reportando {
+  #reportar {
+    opacity: 1.0;
+  }
+  #acciones .abrir-panel {
+    display: none;
+  }
+  #acciones li.logo {
+    left: 250px;
+  }
+}
