@@ -52,7 +52,7 @@ En `_docs/logo/` incluimos un SVG y un .ai con assets de la marca, para que pued
 
 ## Créditos
 
-AcaNoHayLuz fue desarrollado por [Aerolab](https://aerolab.co) a partir de la idea de [celestineia](https://twitter.com/celestineia)
+AcaNoHayLuz fue desarrollado a partir de la colaboración de [Aerolab](https://aerolab.co) y [celestineia](https://twitter.com/celestineia)
 
 ## Licencia
 
